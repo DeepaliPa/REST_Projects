@@ -1,59 +1,57 @@
 package com.deepali.neu.edu.messenger.model;
 
-
-import java.util.Date;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Votes {
 
-	private long id;
-	private String message;
-	private Date created;
-	private String author;
+	private int id;
+	private String username;
+	private String vote;
+	private String dateCreated;
 
 	public Votes() {
 
 	}
 
-	public Votes(long id, String message, String author) {
+	public Votes(int id, String username, String vote, String dateCreated) {
+		super();
 		this.id = id;
-		this.message = message;
-		this.author = author;
-		this.created=new Date();
+		this.username = username;
+		this.vote = vote;
+		this.dateCreated = dateCreated;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public Date getCreated() {
-		return created;
+	public String getVote() {
+		return vote;
 	}
 
-	public void setCreated(Date created) {
-		this.created = created;
+	public void setVote(String vote) {
+		this.vote = vote;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getDateCreated() {
+		return dateCreated;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setDateCreated(String dateCreated) {
+		this.dateCreated = dateCreated;
 	}
 
 }
