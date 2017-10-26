@@ -81,7 +81,7 @@ body{
 				
 					<div>
 						<label for="Message">MESSAGE : </label>
-						<textarea id="msgTextArea">Please select the option</textarea>
+						<textarea id="msgTextArea"></textarea>
 					</div>
 					
 					<div>
@@ -91,10 +91,10 @@ body{
 					<div><label>SELECT OPTION: </label>
 					
 				
-						  <input type="radio" id ="option1" name="options" value="opt1"> Chinese
-                          | <input type="radio" id ="option2" name="options" value="opt2"> Indian
-                          | <input type="radio" id ="option3" name="options" value="opt3"> Mexican
-                          | <input type="radio" id ="option4" name="options" value="opt4"> Italian
+						  <input type="radio" id ="option1" name="options" value="opt1"> 
+                          | <input type="radio" id ="option2" name="options" value="opt2"> 
+                          | <input type="radio" id ="option3" name="options" value="opt3"> 
+                          | <input type="radio" id ="option4" name="options" value="opt4"> 
 					</div>
 					
 					<div>
