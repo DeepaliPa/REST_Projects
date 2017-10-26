@@ -45,57 +45,7 @@ public class MessageDaoImpl {
 		return msg;
 	}
 
-	// public Message creatMessage(String username, String message, String opt1,
-	// String opt2,
-	// String opt3, String opt4,String endDate) {
-	// JDBCConnection jdbcConnection = new JDBCConnection();
-	// Connection connection = jdbcConnection.getConnnection();
-	// PreparedStatement preparedStatement = null;
-	// Message msgs = null;
-	// id = 1;
-	// System.out.println("EndDate" + endDate);
-	// System.out.println("opt1" + opt1);
-	//
-	//
-	// String insertTableSQL = "INSERT INTO message" + "(id,endDate, username,
-	// message, opt1, opt2, opt3, opt4 ) VALUES" + "(?,?,?,?,?,?,?,?)";
-	//
-	// try {
-	//
-	// preparedStatement = (PreparedStatement)
-	// connection.prepareStatement(insertTableSQL);
-	//
-	// preparedStatement.setInt(1, id);
-	// preparedStatement.setString(2, endDate);
-	// preparedStatement.setString(3, username);
-	// preparedStatement.setString(4, message);
-	// preparedStatement.setString(5, opt1);
-	// preparedStatement.setString(6, opt2);
-	// preparedStatement.setString(7, opt3);
-	// preparedStatement.setString(8, opt4);
-	//
-	// preparedStatement.executeUpdate();
-	// msgs = new Message();
-	//
-	// msgs.setId(id);
-	// msgs.setEndDate(endDate);
-	// msgs.setMessage(message);
-	// msgs.setUsername(username);
-	// msgs.setOpt1(opt1);
-	// msgs.setOpt2(opt2);
-	// msgs.setOpt3(opt3);
-	// msgs.setOpt4(opt4);
-	//
-	//
-	//
-	//
-	// } catch (SQLException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	// return msgs;
-	// }
-
+	
 	public Message creatMessage(Message mes) {
 
 		String endDate = mes.getEndDate();

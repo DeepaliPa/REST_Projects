@@ -19,7 +19,7 @@ public class Message {
 	private String opt2;
 	private String opt3;
 	private String opt4;
-	private Map<Long,Votes> votes=new HashMap<>();
+	
 	
 
 	public Message() {
@@ -102,17 +102,5 @@ public class Message {
 	public void setOpt4(String opt4) {
 		this.opt4 = opt4;
 	}
-
-	@XmlTransient
-	public Map<Long, Votes> getVotes() {
-		return votes;
-	}
-
-	public void setVotes(Map<Long, Votes> votes) {
-		this.votes = votes;
-	}
-
-	
-	
 
 }

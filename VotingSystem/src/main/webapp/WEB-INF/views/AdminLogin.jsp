@@ -83,7 +83,7 @@ label {
 				
 					<div>
 						<label for="Message">MESSAGE : </label>
-						<textarea name="comment" id="myTextarea" required autofocus></textarea>
+						<textarea name="comment" id="myTextarea" required autofocus>Please select the option</textarea>
 					</div>
 				
 
@@ -94,7 +94,13 @@ label {
 						</div>
 					</div>
 					<div>
-						<label for="date">END DATE:</label> <input id="endDate" type="datetime-local" name="endDate" value="2017-23-10T08:30">
+						<label for="date">END DATE:</label> <input id="endDate" type="datetime-local" name="endDate" value="2017-10-30 08:30:45.687" oninput = "countdown()"/>
+					</div>
+					<div>
+						<label for="watch">TIME CLOCK:</label> <input id="watch" type="text"/>
+					</div>
+					<div>
+						<label for="watch">WINNER:</label> <input id="win" type="text"/>
 					</div>
 					<div>
 					    <label></label> <button type='button' id="postButton">POST</button>
@@ -108,38 +114,20 @@ label {
 </body>
 
 	<script>
-		$(document).ready(
-						function() { 
-							var counter = 2;
-							$("#addButton")
-									.click(
-											function() {
+		$(document).ready(function() {
+			
+			                $("#win").prop('disabled', true);
+			                $("#watch").prop('disabled', true);
 
-												if (counter > 5) {
-													alert("Only 5 options allow");
+							var counter = 2;
+							$("#addButton").click(function() {
+												if (counter >= 5) {
+													alert("Only 4 options allow");
 													return false;
 												}
-
-												var newTextBoxDiv = $(
-														document
-																.createElement('div'))
-														.attr(
-																"id",
-																'TextBoxDiv'
-																		+ counter);
-
-												newTextBoxDiv
-														.after()
-														.html(
-																'<label>OPTION '
-																		+ counter
-																		+ ' : </label>'
-																		+ ' <input type="text" name="textbox' + counter +
-		      '" id="textbox' + counter + '" value="" >');
-
-												newTextBoxDiv
-														.appendTo("#TextBoxesGroup");
-
+												var newTextBoxDiv = $(document.createElement('div')).attr("id",'TextBoxDiv'+ counter);
+												newTextBoxDiv.after().html('<label>OPTION '+ counter+ ' : </label>' + ' <input type="text" name="textbox' + counter + '" id="textbox' + counter + '" value="" >');
+												newTextBoxDiv.appendTo("#TextBoxesGroup");
 												counter++;
 											});
 
@@ -148,55 +136,94 @@ label {
 									alert("No more textbox to remove");
 									return false;
 								}
-
 								counter--;
-
 								$("#TextBoxDiv" + counter).remove();
 
 							});
 
 							$("#postButton").click(function() {
-								
-								var username = "DeepaliPa24";
-								var msg = $("#myTextarea").val();
-								var option1 = $("#textbox1").val();
-								var option2 = $("#textbox2").val();
-								var option3 = $("#textbox3").val();
-								var option4 = $("#textbox4").val();
+												var username = "DeepaliPa24";
+												var msg = $("#myTextarea").val();
+												var option1 = $("#textbox1").val();
+												var option2 = $("#textbox2").val();
+												var option3 = $("#textbox3").val();
+												var option4 = $("#textbox4").val();
+												var endDate = $("#endDate").val();
+
+
+												var msg = {}
+
+												msg.message = msg;
+												msg.username = username;
+												msg.endDate = endDate;
+												msg.opt1 = option1;
+												msg.opt2 = option2;
+												msg.opt3 = option3;
+												msg.opt4 = option4;
+
+												var strFinal = JSON.stringify({
+													Message : msg
+												});
+
+												var options = {};
+												options.url = "http://localhost:8080/messenger/webapi/messages/";
+												options.type = "POST";
+												options.data = strFinal;
+												options.dataType = "json";
+												options.contentType = "application/json";
+												options.success = function() {
+													alert("Success");
+												};
+												options.error = function() {
+													alert("Error");
+												};
+
+												$.ajax(options);
+
+											});
+							function winner() {
+										    $.ajax({type : "GET",
+													dataType : "json",
+													url : "http://localhost:8080/messenger/webapi/Votes/",
+													success : function(data) {
+														alert(data);
+														$("#win").val(data[0].winningOption);
+													},
+										            error: function() {
+														alert('Error in determining Winner!');
+													}
+												});
+									}
+			 				function countDown() {
 								var endDate = $("#endDate").val();
-								alert('msg-->' + msg);
-								alert('option1-->' + option1);
-								alert('option2-->' + option2);
-								alert('option3-->' + option3);
-								alert('option4-->' + option4);
-								alert('endDate-->' + endDate);
-								
-								var msg = {}
-								
-								msg.message = msg;
-								msg.username=username;
-								msg.endDate=endDate;
-								msg.opt1 = option1;
-								msg.opt2 =option2;
-								msg.opt3 =option3;
-								msg.opt4 =option4;
-								
-								var strFinal = JSON.stringify({msgg: msg});
-								
-								var options = {};
-								  options.url = "http://localhost:8080/messenger/webapi/messages/";
-								  options.type = "POST";
-								  options.data = strFinal;
-								  options.dataType = "json";
-								  options.contentType = "application/json";
-								  options.success = function () { alert("Success"); };
-								  options.error = function () { alert("Error"); };
+							 	//var endDate = "2017-10-29 08:30:45.687";
+								var countDownDate = new Date(endDate).getTime();
+								var x = setInterval(
+										function() {
+											var now = new Date().getTime();
+											var distance = countDownDate - now;
+											var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+											var hours = Math.floor((distance % (1000 * 60 * 60 * 24))/ (1000 * 60 * 60));
+											var minutes = Math.floor((distance % (1000 * 60 * 60))/ (1000 * 60));
+											var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-								  $.ajax(options);
-								
-							});
+											document.getElementById("watch").value = days
+													+ "d "
+													+ hours
+													+ "h "
+													+ minutes
+													+ "m "
+													+ seconds
+													+ "s ";
+											if (distance < 0) {
+												clearInterval(x);
+												document.getElementById("watch").value = "EXPIRED";
+												winner();
+											}
+										}, 1000); 
+
+							} 
 						});
-
 	</script>
 </body>
 </html>

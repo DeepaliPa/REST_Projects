@@ -66,7 +66,6 @@ public class UserDAO extends DAO {
 	public User create(String username, String password, String email, String fullname) throws AdException {
 		try {
 			begin();
-			System.out.println("inside DAO");
 			User user = new User(username, password);
 
 			user.setFullname(fullname);
@@ -77,7 +76,7 @@ public class UserDAO extends DAO {
 			return user;
 		} catch (HibernateException e) {
 			rollback();
-			// throw new AdException("Could not create user " + username, e);
+
 			throw new AdException("Exception while creating user: " + e.getMessage());
 		}
 	}

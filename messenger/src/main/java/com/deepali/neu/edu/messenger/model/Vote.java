@@ -3,20 +3,22 @@ package com.deepali.neu.edu.messenger.model;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Votes {
+public class Vote {
 
 	private int id;
+	private int messageId;
 	private String username;
 	private String vote;
 	private String dateCreated;
 
-	public Votes() {
+	public Vote() {
 
 	}
 
-	public Votes(int id, String username, String vote, String dateCreated) {
+	public Vote(int id, int messageId, String username, String vote, String dateCreated) {
 		super();
 		this.id = id;
+		this.messageId = messageId;
 		this.username = username;
 		this.vote = vote;
 		this.dateCreated = dateCreated;
@@ -28,6 +30,14 @@ public class Votes {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getMessageId() {
+		return messageId;
+	}
+
+	public void setMessageId(int messageId) {
+		this.messageId = messageId;
 	}
 
 	public String getUsername() {
@@ -53,5 +63,7 @@ public class Votes {
 	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
+	
+	
 
 }

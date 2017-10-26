@@ -57,7 +57,7 @@
 							<h2 class="feature-content-title green-text"></h2>
 							<p class="feature-content-description">Morbi sagittis justo a velit placerat ullamcorper quis quis velit. Sed convallis at risus ullamcorper auctor. Praesent quis velit neque. Quisque semper porta nisi vitae suscipit. Duis lectus magna, ornare ac scelerisque.
 							</p>
-							<a href="#" class="feature-content-link green-btn">button green</a>
+							<a href="#" class="feature-content-link green-btn">Voting System</a>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -65,7 +65,7 @@
 							<img src="resources/img/1-2.jpg" alt="Image">
 							<h2 class="feature-content-title blue-text"></h2>
 							<p class="feature-content-description">Conquer Template is provided by templatemo for free of charge. You can use this template for any kind of website. No credit link is required. All images by <a href="http://unsplash.com" target="_parent">Unsplash</a>. Thank you for visiting our website. Please come again!</p>                    
-							<a href="#" class="feature-content-link blue-btn">See Details</a>
+							<a href="#" class="feature-content-link blue-btn">Voting System</a>
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -74,7 +74,7 @@
 							<h2 class="feature-content-title red-text"></h2>
 							<p class="feature-content-description">Morbi sagittis justo a velit placerat ullamcorper quis quis velit. Sed convallis at risus ullamcorper auctor. Praesent quis velit neque. Quisque semper porta nisi vitae suscipit. Duis lectus magna, ornare ac scelerisque.
 							</p>
-							<a href="#" class="feature-content-link red-btn">Button Red</a>
+							<a href="#" class="feature-content-link red-btn">Voting System</a>
 						</div>
 					</div>
 				</div>
@@ -88,7 +88,7 @@
 							<div class="row text-center">
 								<div class="col-sm-12">
 									<div class="footer-content">
-										<h1>Use it free!</h1>
+										<h1>Voting Systems</h1>
 										<p>“Conquer is free Bootstrap template from templatemo website. 
 											<br>No backlink is required to use this layout.”</p>
 										</div>                
@@ -99,7 +99,7 @@
 							<div class="container">
 								<div class="row">
 									<div class="col-sm-12 text-center">             
-										<p class="copy">Copyright © 2084 Your Company Name 
+										<p class="copy">Copyright © 2084 Voting Systems 
                                         
                                         | Design: <a rel="nofollow" href="http://www.templatemo.com" target="_parent">template mo</a></p>
 									</div>
